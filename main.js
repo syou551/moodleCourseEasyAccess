@@ -32,6 +32,12 @@
      return hiddenCourse.split(',');
    }
 
+   function resetCourseList(){
+     localStorage.clear(COURSE_STORAGE_KEY);
+     localStorage.clear(COURSENAME_STORAGE_KEY);
+     return;
+   }
+
    function toggleCourse(course,name) {
      const list = getHiddenCourse();
      const listName = getHiddenCourseName();
@@ -148,7 +154,11 @@
        tab.appendChild(li);
        i++;
      }
+     const reset = document.createElement(button);
+     reset.textContent = '表示する科目をリセット';
+     reset.addEventListener('click', () => {resetCourseList();location.reload();});
      div.appendChild(tab);
+     div.appendChild(reset);
    }
 
  })();
