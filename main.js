@@ -113,14 +113,14 @@
 
        const linkHref = link.getAttribute('href');
        const courseId = linkHref.match(/\?id=(\d+)/)[1];
-       const courseName = link.childNodes[5].innerText;
+       const courseName = link.childNodes[5].innerText.split("\n");
        if (!courseId) continue;
 
        let button = document.getElementById(courseId);
        if (!button) {
          button = document.createElement('button');
          button.addEventListener('click', () => {
-           toggleCourse(courseId,courseName);
+           toggleCourse(courseId,courseName[0]);
            hiddenCourseSelector();
          });
          button.id = courseId;
