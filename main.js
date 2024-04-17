@@ -154,7 +154,7 @@
        tab.appendChild(li);
        i++;
      }
-     const reset = document.createElement(button);
+     const reset = document.createElement('button');
      reset.textContent = '表示する科目をリセット';
      reset.addEventListener('click', () => {resetCourseList();location.reload();});
      div.appendChild(tab);
